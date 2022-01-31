@@ -1,0 +1,2 @@
+INSTALL TELNET ON WIN10 VIA CMD
+dism /online /Enable-Feature /FeatureName:TelnetClient
