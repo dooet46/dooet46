@@ -15,3 +15,12 @@ create partition efi size=200
 format fs=fat32
 create partition msr size=128
 Exit Diskpart:
+
+
+****RESET all network conf*** from here: https://techgenix.com/resolving-problems-creating-a-hyper-v-virtual-switch/
+!!!!this completely destroys your network configuration!!!! needs physical presence!!!!
+PS
+netcfg -d
+
+**disable check CRL for hyper-v replication. from here: https://www.nakivo.com/blog/how-to-request-ssl-certificates-for-hyper-v/
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Replication" /v DisableCertRevocationCheck /d 1 /t REG_DWORD /f
