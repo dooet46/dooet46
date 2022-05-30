@@ -1,6 +1,9 @@
 ***INSTALL TELNET ON WIN10 VIA CMD
 dism /online /Enable-Feature /FeatureName:TelnetClient
 
+**FIX Windows Defender GUI---> powershell
+Get-AppxPackage Microsoft.SecHealthUI -AllUsers | Reset-AppxPackage
+
 ***powershell commands for Hyper-V self signed certificate for replication
 New-SelfSignedCertificate -Type "Custom" -KeyExportPolicy "Exportable" -Subject "CN=MYrootca" -CertStoreLocation "Cert:\LocalMachine\My" -KeySpec "Signature" -KeyUsage "CertSign"  -NotAfter (Get-Date).AddYears(40)
 New-SelfSignedCertificate -type "Custom" -KeyExportPolicy "Exportable" -Subject "CN=HV-2019" -CertStoreLocation "Cert:\LocalMachine\My" -KeySpec "KeyExchange" -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1,1.3.6.1.5.5.7.3.2") -Signer "Cert:LocalMachine\My\CF0E5B1C705EC57A21036BBD0FDEDEC5A2E6BF8E" -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" -NotAfter (Get-Date).AddYears(40)
